@@ -55,23 +55,15 @@
           offset-md="0"
         >
           <div class="display-3">
-            Girder Web Components
+            <p>RMS Segmentation of Whole Slide Images</p>
           </div>
           <div class="title mb-1">
-            A Vue + Vuetify library for interacting with
-            <a href="https://www.kitware.com/">Kitware's</a>
-            data management platform,
-            <a href="https://girder.readthedocs.io/en/stable/">Girder</a>
-          </div><img
-            v-for="badge in badges"
-            :key="badge"
-            :src="badge"
-            class="pr-3"
-          >
+            <p>This is an application for uploading whole slide images for processing by the rhabdomyosarcoma segmentation algorithms developed at the Imaging and Visualization Group at the Frederick National Lab for Cancer Research.</p>
+          </div>
+
           <v-row class="ma-0">
             <div class="title mb-1">
-              This demo integrates with
-              <a href="https://data.kitware.com">data.kitware.com</a>
+              Select the interface theme:
             </div>
             <v-switch
               v-model="$vuetify.theme.dark"
@@ -81,23 +73,11 @@
             />
           </v-row><a id="auth" />
           <headline
-            title="girder-auth"
-            link="src/components/Authentication/Authentication.vue"
-            description="allows users to authenticate with girder"
+            title="Login here to access the service"
+            description="Please enter your user and password.  For assistance with an account, please contact Dr. Yanling Liu at liuy5@mail.nih.gov"
           />
-          <v-row class="mb-2">
-            <v-switch
-              v-model="authRegister"
-              class="ma-2"
-              hide-details="hide-details"
-              label="register"
-            />
-            <v-switch
-              v-model="authOauth"
-              class="ma-2"
-              hide-details="hide-details"
-              label="oauth"
-            />
+          
+
           </v-row><template v-if="loggedOut">
             <girder-auth
               :key="girderRest.token"
@@ -119,9 +99,9 @@
             </v-btn>
           </template><a id="upload" />
           <headline
-            title="girder-upload"
+            title="upload a WSI image"
             link="src/components/Upload.vue"
-            description="upload files to a specified location in girder"
+            description="Please use the panel below to select and upload a WSI for processing.  The upload can take some time because of the size of most WSI images. Please be patient."
           />
           <v-card>
             <girder-upload
@@ -129,14 +109,8 @@
               :post-upload="postUpload"
             />
           </v-card><a id="search" />
-          <headline
-            title="girder-search"
-            link="src/components/Search.vue"
-            description="provides global search functionality"
-          />
-          <v-toolbar color="primary">
-            <girder-search @select="handleSearchSelect" />
-          </v-toolbar>
+
+
           <v-row>
             <v-col
               class="pr-4"
@@ -376,8 +350,8 @@ export default {
         return this.location;
       }
       return {
-        name: 'temp',
-        _id: '5e2a25fdaf2e2eed35309112',
+        name: 'uploads',
+        _id: '5fd8f245027ca81f04218cdc',
         _modelType: 'folder',
       };
     },
